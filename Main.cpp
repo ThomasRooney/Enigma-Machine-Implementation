@@ -6,18 +6,6 @@
 #include "Plugboard.h"
 #include "Rotor.h"
 
-
-
-
-
-
-
-void signalHandler( int signum )
-{
-  cout << "Sir, we recieved an interrupt signal (" << signum << ")." << endl;
-  exit(signum);  
-}
-
 int main(int argc, char **argv)
 {
 	int i;

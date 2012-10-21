@@ -1,7 +1,5 @@
 #ifndef _ENIGMA_BASE
 #define _ENIGMA_BASE
-
-
 #include "common.h"
 
 

@@ -1,6 +1,6 @@
 #include "common.h"
 
-
+void signalHandler( int signum );
 // Definition must go in header file so definition is available at compile time when the template is used.
 // And export isn't defined correctly in my IDE/Compiler.
 template <typename T>
