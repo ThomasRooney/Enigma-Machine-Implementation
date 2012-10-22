@@ -61,11 +61,11 @@ int main(int argc, char **argv)
     // Make sure its an uppercase letter
     if (!isalpha(buffer))
     {
-      cout << endl << "Sir, you have entered an invalid letter: " << buffer << endl;
+      //cout << endl << "Sir, you have entered an invalid letter: " << buffer << endl;
       continue;
     }
-    buffer = toupper(buffer);
-    // For each item, in order, the wriing passes through.
+    buffer = toupper(buffer); 
+    // For each item, in order, the wiring passes through.
     i = 0;
     for (objectIter = objects.begin(); objectIter != objects.end(); objectIter++)
     {
@@ -73,11 +73,13 @@ int main(int argc, char **argv)
       if (*objectIter != NULL)
       {
         // If we're beyond the half way point, use inverse operations
+       // cout << endl << "StateBefore: " << buffer << endl;
         if (++i > objects.size() / 2)
           buffer <<= **objectIter;
         else
           // Send data in and collect its output.
           buffer >>= **objectIter;
+        //cout << "StateAfter: " << buffer << endl;
       }
     }
     // rotate the rotors
@@ -85,7 +87,7 @@ int main(int argc, char **argv)
     {
       (*rotorIter)->rotate();
       // Only rotate the next rotors when the previous rotor has done a full rotation
-      if ((*rotorIter)->rotation % LENGTH_OF_ALPHABET != 0)
+      if ((*rotorIter)->rotation % LENGTH_OF_ALPHABET == 0)
         break;
     }
     // Send buffer to cout
