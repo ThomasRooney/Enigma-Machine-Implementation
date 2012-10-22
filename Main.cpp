@@ -8,7 +8,7 @@
 
 int main(int argc, char **argv)
 {
-	int i;
+	unsigned int i;
   vector<Enigma_Base *> objects;
   vector<Enigma_Base *>::iterator objectIter;
   vector<Rotor *> rotors;
@@ -47,6 +47,7 @@ int main(int argc, char **argv)
     for (rotorIter = rotors.end() - 1; rotorIter != rotors.begin(); rotorIter--){
       objects.push_back(*rotorIter);
     }
+     objects.push_back(*rotorIter); // Push back the first rotor (don't want to overflow)
   }
   // Then the plugboard again
   objects.push_back(plugboard);
@@ -65,13 +66,18 @@ int main(int argc, char **argv)
     }
     buffer = toupper(buffer);
     // For each item, in order, the wriing passes through.
+    i = 0;
     for (objectIter = objects.begin(); objectIter != objects.end(); objectIter++)
     {
       // if its null (not included, e.g. no args, ignore it)
       if (*objectIter != NULL)
       {
-        // Send data in and collect its output.
-        buffer >>= **objectIter;
+        // If we're beyond the half way point, use inverse operations
+        if (++i > objects.size() / 2)
+          buffer <<= **objectIter;
+        else
+          // Send data in and collect its output.
+          buffer >>= **objectIter;
       }
     }
     // rotate the rotors

@@ -7,4 +7,5 @@ public:
   Rotor(char *a);
   void rotate();
   void operation ();
+  void invoperation ();
 };
