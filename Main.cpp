@@ -42,8 +42,11 @@ int main(int argc, char **argv)
   // Then a reflector
   objects.push_back(reflector);
   // More rotors, backwards
-  for (rotorIter = rotors.end() - 1; rotorIter != rotors.begin(); rotorIter--){
-    objects.push_back(*rotorIter);
+  if (rotors.size() > 0)
+  {
+    for (rotorIter = rotors.end() - 1; rotorIter != rotors.begin(); rotorIter--){
+      objects.push_back(*rotorIter);
+    }
   }
   // Then the plugboard again
   objects.push_back(plugboard);
