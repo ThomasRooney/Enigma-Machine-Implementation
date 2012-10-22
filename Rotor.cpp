@@ -1,4 +1,6 @@
 #include "Rotor.h"
+#include <stdexcept>
+
 
 Rotor::Rotor(char *a) : Enigma_Base(a) {
   rotation = 0;
