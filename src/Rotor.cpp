@@ -3,7 +3,7 @@
 #include <algorithm>
 
 
-Rotor::Rotor(char *a) : Enigma_Base(a) {
+Rotor::Rotor(char *a) : Enigma_Part(a) {
   rotation = 0;
 }
 
@@ -20,7 +20,7 @@ void Rotor::operation () {
   try {
     // Rotate it according to the Rotor Internal Configuration
     state = (CHARTOINT(state)+rotation)%LENGTH_OF_ALPHABET;
-    state = (config->at(state));
+    state = ( config->at(state));
     state = (state - rotation + LENGTH_OF_ALPHABET) % LENGTH_OF_ALPHABET;
     state = INTTOCHAR(state);
   }

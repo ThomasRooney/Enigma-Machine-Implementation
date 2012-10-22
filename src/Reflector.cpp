@@ -1,7 +1,7 @@
 #include "Reflector.h"
 
 
-Reflector::Reflector() : Enigma_Base() {}
+Reflector::Reflector() : Enigma_Part() {}
 
 void Reflector::operation () {
   state = INTTOCHAR(\

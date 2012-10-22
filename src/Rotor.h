@@ -1,7 +1,10 @@
-#include "common.h"
-#include "Enigma_Base.h"
+#ifndef _Rotor
+#define _Rotor
 
-class Rotor : public Enigma_Base{
+#include "common.h"
+#include "Enigma_Part.h"
+
+class Rotor : public Enigma_Part{
 public:
   int rotation;
   Rotor(char *a);
@@ -9,3 +12,5 @@ public:
   void operation ();
   void invoperation ();
 };
+
+#endif
