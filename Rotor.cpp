@@ -33,7 +33,7 @@ void Rotor::invoperation () {
   // Lookup index in config
   // Look up the state in the config, output the index required to get to that state
   int expected = CHARTOINT(state);
-  expected = ((expected - rotation + LENGTH_OF_ALPHABET) % LENGTH_OF_ALPHABET);
+  expected = ((expected + rotation) % LENGTH_OF_ALPHABET);
 
   for (unsigned int i=0;
       i < config->size();
@@ -41,7 +41,7 @@ void Rotor::invoperation () {
   {
     if (config->at(i) == expected)
     {
-      state = ((i + rotation) % LENGTH_OF_ALPHABET);
+      state = ((i - rotation + LENGTH_OF_ALPHABET) % LENGTH_OF_ALPHABET);
       state = INTTOCHAR(state);
       
       return;
