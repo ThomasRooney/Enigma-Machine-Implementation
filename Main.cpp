@@ -87,7 +87,7 @@ int main(int argc, char **argv)
     {
       (*rotorIter)->rotate();
       // Only rotate the next rotors when the previous rotor has done a full rotation
-      if ((*rotorIter)->rotation % LENGTH_OF_ALPHABET == 0)
+        if ((*rotorIter)->rotation % LENGTH_OF_ALPHABET != 0)
         break;
     }
     // Send buffer to cout
