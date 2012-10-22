@@ -61,7 +61,7 @@ int main(int argc, char **argv)
     // Make sure its an uppercase letter
     if (!isalpha(buffer))
     {
-      //cout << endl << "Sir, you have entered an invalid letter: " << buffer << endl;
+      cout << endl << "Sir, you have entered an invalid letter: " << buffer << endl;
       continue;
     }
     buffer = toupper(buffer); 
