@@ -91,7 +91,9 @@ int main(int argc, char **argv)
         break;
     }
     // Send buffer to cout
-    cout << buffer;
-  }
+    // Double check cin is not closed
+    if (cin.good())
+     cout << buffer;
+   }
   return 0;
 }
