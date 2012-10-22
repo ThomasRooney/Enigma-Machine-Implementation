@@ -10,7 +10,7 @@ Rotor::Rotor(char *a) : Enigma_Base(a) {
 void Rotor::rotate() {
   rotation++;
   std::rotate(config->begin(),
-            config->begin()+1, // this will be the new first element
+            config->end ()-1, // this will be the new first element
             config->end());
 }
 
